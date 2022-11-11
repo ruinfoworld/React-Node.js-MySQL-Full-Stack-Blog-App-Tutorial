@@ -27,7 +27,6 @@ const Register = () => {
             setError(err.response.data);
         }
     }
-    console.log(inputs,"dfasad")
     return (
         <div className="auth">
         <h1>Login</h1>
