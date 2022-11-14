@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import EditImage from "../img/edit.png";
 import DeleteImage from "../img/delete.png"; 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Menu from "../components/Menu";
 
 const Single = () => {
+    const [post, setPost] = useState([]);
+    const location = useLocation();
+    console.log(location);
+
     return (
         <div className="single">
             <div className="content">
