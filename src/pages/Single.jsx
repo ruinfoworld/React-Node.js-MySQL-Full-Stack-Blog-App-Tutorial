@@ -35,7 +35,6 @@ const Single = () => {
             console.log(err);
         }
     }
-
     return (
         <div className="single">
             <div className="content">
@@ -47,7 +46,7 @@ const Single = () => {
                         <p>Posted {moment(post.created).fromNow()}</p>
                     </div>
                     {currentUser.username === post.username && <div className="edit">
-                        <Link to={`/write?edit=2`}>
+                        <Link to={`/write?edit=${post.id}`} state={post}>
                             <img src={EditImage} alt=""/>   
                         </Link>
                         <img onClick={handleDelete} src={DeleteImage} alt=""/>
@@ -56,7 +55,7 @@ const Single = () => {
                 <h1>{post.title}</h1>
                 {post.desc}
             </div>
-            <Menu />
+            <Menu cat={post?.cat}/>
         </div> 
     )
 }
