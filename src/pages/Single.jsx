@@ -6,6 +6,7 @@ import Menu from "../components/Menu";
 import axios from "axios";
 import moment from "moment";
 import { AuthContext } from "../context/authContext";
+import parse from 'html-react-parser';
 
 const Single = () => {
     const [post, setPost] = useState({});
@@ -38,7 +39,7 @@ const Single = () => {
     return (
         <div className="single">
             <div className="content">
-                <img src={post?.img} alt=""/>
+                <img src={`../uploads/${post?.img}`} alt=""/>
                 <div className="user">
                     {post.userImage && <img src={post?.userImage} alt=""/>}
                     <div className="info">
@@ -53,7 +54,7 @@ const Single = () => {
                     </div>}
                 </div>
                 <h1>{post.title}</h1>
-                {post.desc}
+                <p>{post.desc ? parse(post.desc) : ""}</p>
             </div>
             <Menu cat={post?.cat}/>
         </div> 
